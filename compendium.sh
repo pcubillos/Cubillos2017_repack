@@ -11,7 +11,7 @@ make
 cd $topdir
 git clone --recursive https://github.com/pcubillos/pyratbay
 cd $topdir/pyratbay
-git checkout 5d9e2f4
+git checkout 5af22ce
 make
 
 
@@ -19,10 +19,6 @@ make
 cd $topdir/inputs/
 wget -i wget_exomol_hcn.txt
 bzip2 -d *.bz2
-
-# Figure 1:
-cd $topdir
-$topdir/fig_flagging.py
 
 
 # Repack HCN line-transition data:
@@ -39,6 +35,10 @@ cd $topdir/run
 $topdir/pyratbay/pbay.py -c tli_HCN_compressed.cfg
 $topdir/pyratbay/pbay.py -c tli_HCN_control.cfg
 
+
+# Figure 1:
+cd $topdir
+$topdir/fig_flagging.py
 
 # Figure 2:
 cd $topdir/run

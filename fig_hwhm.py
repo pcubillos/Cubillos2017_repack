@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 import sys, os
 import matplotlib
 import numpy as np
@@ -11,10 +13,11 @@ import pyratbay.constants as pc
 
 # Read Pyrat Bay objects:
 pyrat = pb.pyrat.init("pyratbay_compress.cfg")
-wn = pyrat.spec.wn     # Wavenumber (cm-1)
-wl =1e4/pyrat.spec.wn  # Wavelength (micron)
+wn = pyrat.spec.wn      # Wavenumber (cm-1)
+wl = 1e4/pyrat.spec.wn  # Wavelength (micron)
 
 # Calculate Doppler-width boundaries:
+ispec = list(pyrat.mol.name).index("HCN")
 mass    = pyrat.mol.mass[ispec]
 press   = pyrat.atm.press
 nlayers = pyrat.atm.nlayers
@@ -49,14 +52,12 @@ plt.plot(np.tile(dop2[i1], nlayers), press/pc.bar, lw=lw,
          color="orange", ls="--")
 # Widths at 12 microns:
 plt.plot(np.tile(dop1[i2], nlayers), press/pc.bar, lw=lw,
-         color="0.7", label='Doppler (12 um)')
+         color="0.65", label='Doppler (12 um)')
 plt.plot(np.tile(dop2[i2], nlayers), press/pc.bar, lw=lw,
-         color="0.7", ls="--")
+         color="0.65", ls="--")
 plt.ylim(1e2, 1e-5)
 plt.xlabel("Line HWHM (cm-1)")
 plt.ylabel("Pressure (bar)")
 plt.legend(loc='best')
 plt.savefig("../plots/broadening.ps")
-
-
-
+plt.savefig("../plots/broadening.pdf")

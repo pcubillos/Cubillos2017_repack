@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 import sys, os
 import numpy as np
 import scipy.constants as sc
@@ -68,7 +70,7 @@ ran = (wn > wn[i]-6*alphad[i]) & (wn < wn[i]+6*alphad[i])
 # Doppler broadening profile:
 doppler = (s/alphad/np.sqrt(np.pi))[i] * np.exp(-(wn-wn[i])**2/alphad[i]**2)
 # Flag out lines weaker than (broadened) selected line times sthresh:
-sthresh=0.1
+sthresh = 0.01
 flag = s/alphad/np.sqrt(np.pi) > doppler*sthresh
 
 # Figure 1:
@@ -89,9 +91,4 @@ plt.xlim(5001.2, 5002.0)
 plt.xlabel(r"$\rm Wavenumber\ \ (cm^{-1})$", fontsize=14)
 plt.ylabel(r"$\rm Line\ intensity/\delta_{\rm D}$", fontsize=14)
 plt.savefig("plots/line-flagging.ps")
-
-
-
-
-
-
+plt.savefig("plots/line-flagging.pdf")
