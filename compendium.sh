@@ -5,7 +5,7 @@ topdir=`pwd`
 cd $topdir
 git clone https://github.com/pcubillos/repack
 cd $topdir/repack
-git checkout 34d1e9e
+git checkout 279b1df
 make
 
 cd $topdir
