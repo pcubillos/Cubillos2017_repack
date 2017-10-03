@@ -1,11 +1,14 @@
 pyratbay/
 repack/
+pytips/
 *~
 *.tli
 *.pf
 *.states
 *.trans
-run/*.dat
+*.bz2
+*.par
+run01/*.dat
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
