@@ -8,7 +8,7 @@
 
 ## Cubillos (2017): "An Algorithm to Compress Line-transition Data for Radiative-transfer Calculations"
 
-This paper was submitted to the American Astronomical Society Journals. Download the compendium to your local machine with the following command:
+This paper is accepted for publication in ApJ. To download this compendium to your local machine, run the following command:
 ```shell
 git clone https://github.com/pcubillos/Cubillos2017_repack
 ```
